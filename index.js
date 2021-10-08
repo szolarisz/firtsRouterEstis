@@ -23,6 +23,14 @@ const server = http.createServer( (req,res) => {
                 res.end(data);
             })
         break;
+        case req.url === "/sokmalac.jpg" && req.method === "GET":
+
+            fs.readFile('sokmalac.jpg', (err, data) => {
+                res.setHeader('Content-Type', 'image/jpeg');
+                res.writeHead(200);
+                res.end(data);
+            })
+        break;
         case req.url === "/alap2.css" && req.method === "GET":
 
             fs.readFile('alap.css', 'utf8', (err, data) => {
